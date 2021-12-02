@@ -29,6 +29,13 @@ const useStyles = makeStyles((theme) => ({
         letterSpacing: '0.15em',
         color: '#0a4352',
     },
+    noMovie: {
+        fontFamily: theme.typography.fontFamily,
+        fontSize: '20px',
+        fontWeight: 'bold',
+        margin: '30px',
+        color: theme.palette.text.primary,
+    },
     movieInfoItem: {
         '& .MuiTypography-body1': {
             fontFamily: theme.typography.fontFamily,
@@ -89,40 +96,42 @@ export default function MovieDetailInfoList() {
     }, [])
 
     return (
-        movieInfo && <div className={styles.wrapper}>
-            <div className={styles.movieTitle}>
-                {movieInfo["Title"]}
-                {
-                    isFavorite
-                        ? <FavMovieStar
-                            imdbID={movieInfo["imdbID"]}
-                            setNoFavorite={() => setIsFavorite(false)}
-                        />
-                        : <NoFavMovieStar
-                            imdbID={movieInfo["imdbID"]}
-                            title={movieInfo["Title"]}
-                            year={movieInfo["Year"]}
-                            setFavorite={() => setIsFavorite(true)}
-                        />
-                }
-            </div>
-            <List>
-                {
-                    Object.keys(movieInfo).map((key, idx) => (
-                        !hiddenKeys.includes(key) &&
-                        <ListItem
-                            key={idx}
-                            className={styles.movieInfoItem}
-                        >
-                            <ListItemText
-                                primary={key}
-                                secondary={movieInfo[key]}
+        (movieInfo && Object.keys(movieInfo).length > 0)
+            ? <div className={styles.wrapper}>
+                <div className={styles.movieTitle}>
+                    {movieInfo["Title"]}
+                    {
+                        isFavorite
+                            ? <FavMovieStar
+                                imdbID={movieInfo["imdbID"]}
+                                setNoFavorite={() => setIsFavorite(false)}
                             />
-                        </ListItem>
-                    ))
-                }
-            </List>
-            <img src={movieInfo["Poster"]} alt={"poster"}/>
-        </div>
+                            : <NoFavMovieStar
+                                imdbID={movieInfo["imdbID"]}
+                                title={movieInfo["Title"]}
+                                year={movieInfo["Year"]}
+                                setFavorite={() => setIsFavorite(true)}
+                            />
+                    }
+                </div>
+                <List>
+                    {
+                        Object.keys(movieInfo).map((key, idx) => (
+                            !hiddenKeys.includes(key) &&
+                            <ListItem
+                                key={idx}
+                                className={styles.movieInfoItem}
+                            >
+                                <ListItemText
+                                    primary={key}
+                                    secondary={movieInfo[key]}
+                                />
+                            </ListItem>
+                        ))
+                    }
+                </List>
+                <img src={movieInfo["Poster"]} alt={"poster"}/>
+            </div>
+            : <div className={styles.noMovie}>No movie data</div>
     )
 }

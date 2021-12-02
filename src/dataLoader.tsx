@@ -38,12 +38,12 @@ function requestMovieInfoAPI(action: any) {
         })
 }
 
-function* requestMoviesList(action: { type: string, payload: any }) {
+function* requestMoviesList(action: { type: string, payload: { searchPhrase: string } }) {
     const movies: Array<any> = yield call(requestMoviesAPI, action)
     yield put(setSearchResults(movies))
 }
 
-function* requestMovieInfo(action: { type: string, payload: any }) {
+function* requestMovieInfo(action: { type: string, payload: { imdbID: string } }) {
     // @ts-ignore
     const movieInfo = yield call(requestMovieInfoAPI, action)
     yield put(setMovieInfo(movieInfo))
