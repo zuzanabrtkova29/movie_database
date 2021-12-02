@@ -19,7 +19,7 @@ import cinema from '../assets/cinema.png'
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
-        margin: '50px',
+        margin: '70px 50px',
         maxWidth: '900px',
     },
     listTitle: {

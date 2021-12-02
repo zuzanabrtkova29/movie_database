@@ -8,8 +8,8 @@ import listItemStyle from '../styles/listItemStyle'
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
-        margin: '50px 0 0 140px',
-        maxWidth: '700px',
+        margin: '50px',
+        maxWidth: '900px',
     },
 }))
 

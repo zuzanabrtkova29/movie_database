@@ -17,7 +17,7 @@ const hiddenKeys = ["Title", "imdbID", "Ratings", "Poster", "Response"]
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
-        margin: '50px',
+        margin: '30px 50px',
         maxWidth: '1200px',
     },
     movieTitle: {

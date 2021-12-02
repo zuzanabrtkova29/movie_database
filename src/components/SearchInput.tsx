@@ -5,10 +5,9 @@ import {useDispatch, useSelector} from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     input: {
-        flex: 1,
         height: '100px',
         width: '500px',
-        margin: '100px 0 0 150px',
+        marginLeft: '350px',
         backgroundColor: 'white',
         border: '2px solid #0a4352',
         borderRight: 'none',

@@ -12,6 +12,18 @@ const basicPageStyle = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.default,
         overflow: 'auto',
     },
+    buttonWrapper: {
+        width: '100%',
+        height: '40px',
+        position: 'relative',
+        margin: 0,
+    },
+    inputWrapper: {
+        width: '100%',
+        height: '110px',
+        position: 'relative',
+        margin: '100px 0',
+    },
 }))
 
 export default basicPageStyle

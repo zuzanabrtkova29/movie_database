@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     button: {
         height: '103px',
         width: '103px',
-        margin: '100px 0 0 0',
         border: '2px solid #0a4352',
         borderLeft: 'none',
         borderRadius: 0,
